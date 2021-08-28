@@ -8,4 +8,4 @@ If you loopback the audio to an input, you can decode them using DireWolf or Sou
 
 beacon_test2.wav is a test file provided by Joel Latrell
 
-payload.wav is a test file I generated.
+packet.wav is a test file I generated.
