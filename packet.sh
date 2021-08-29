@@ -25,7 +25,7 @@ sudo killall -9 CubicSDR &>/dev/null
 
 echo
 
-echo "Choose the number for the frequency for APRS decoding:"
+echo "Choose the number for the packet decoding option:"
 echo
 echo "1. APRS US 2m (144390 kHz)"
 echo "2. CubeSatSim (434900 kHz)"
@@ -101,7 +101,7 @@ echo "Note that the 'Tuned to' frequency will be different from the chosen frequ
 
 echo
 
-if [ "$choice" = "5" ] || [ "$choice" = "6" ]; then
+if [ "$choice" = "6" ] || [ "$choice" = "7" ]; then
 
   echo -e "Auto decoding AX.25 packets on $frequency Hz"
 
