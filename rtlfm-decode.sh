@@ -1,4 +1,4 @@
-#1/bin/sh
+#!/bin/sh
 
 sudo modprobe snd-aloop
 
@@ -61,9 +61,9 @@ if [ "$choice" = "1" ]; then
   echo "$value" > /dev/null
   set -- $value
 
-# rtl_fm -M fm -f $frequency -s 48k | tee >(aplay -D hw:${2:0:1},0,0 -r 48000 -t raw -f S16_LE -c 1) | aplay -D hw:0,0 -r 48000 -t raw -f S16_LE -c 1
+rtl_fm -M fm -f $frequency -s 48k | tee >(aplay -D hw:${2:0:1},0,0 -r 48000 -t raw -f S16_LE -c 1) | aplay -D hw:0,0 -r 48000 -t raw -f S16_LE -c 1
 #rtl_fm -M fm -f $frequency -s 48k | tee >(aplay -D hw:3,0,0 -r 48000 -t raw -f S16_LE -c 1) | aplay -D hw:0,0 -r 48000 -t raw -f S16_LE -c 1
-rtl_fm -M fm -f $frequency -s 48k | tee >(aplay -D hw:3,0,0 -r 48000 -t raw -f S16_LE -c 1) | aplay -D hw:0,0 -r 48000 -t raw -f S16_LE -c 1
+#rtl_fm -M fm -f $frequency -s 48k | tee >(aplay -D hw:3,0,0 -r 48000 -t raw -f S16_LE -c 1) | aplay -D hw:0,0 -r 48000 -t raw -f S16_LE -c 1
  
   sleep 5
 
