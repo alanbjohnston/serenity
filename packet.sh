@@ -47,8 +47,9 @@ echo "2. CubeSatSim (434900 kHz)"
 echo "3. APRS European 2m (144800 kHz)"
 echo "4. APRS Australian 2m (145175 kHz)"
 echo "5. APRS on another frequency"
-echo "6. Serenity CubeSat 4800 bps (437.1 MHz)"
-echo "7. Test Serenity CubeSat decoding with WAV file"
+echo "6. APRS on ISS (145825 kHz)"
+echo "7. Serenity CubeSat 4800 bps (437.1 MHz)"
+echo "8. Test Serenity CubeSat decoding with WAV file"
 echo
 
 read -r choice
@@ -85,12 +86,16 @@ elif [ "$choice" = "5" ]; then
 
 elif [ "$choice" = "6" ]; then
 
+  frequency=145825000
+
+elif [ "$choice" = "7" ]; then
+
   frequency=437100000
 
 #elif [ "$choice" = "6" ]; then
 else
 
-  echo "A recorded WAV file will play and you should see about 4 packets decoded"
+  echo "A recorded WAV file will play and you should see some packets decoded"
 
   echo 
  
@@ -135,7 +140,7 @@ echo "Note that the 'Tuned to' frequency will be different from the chosen frequ
 
 echo
 
-if [ "$choice" = "6" ] || [ "$choice" = "7" ]; then
+if [ "$choice" = "7" ] || [ "$choice" = "8" ]; then
 
   echo -e "Auto decoding AX.25 packets on $frequency Hz"
 
