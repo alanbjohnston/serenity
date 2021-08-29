@@ -95,7 +95,7 @@ else
   echo 
  
   FILE=WAV
-  if [ ! -f "$FILE" ]; then
+  if [ ! -d "$FILE" ]; then
 
     mkdir WAV
     
