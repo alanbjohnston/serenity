@@ -78,10 +78,15 @@ else
   echo "A recorded WAV file will play and you should see about 4 packets decoded"
 
   echo 
+  
+  value=`aplay -l | grep "Loopback"`
+  echo "$value" > /dev/null
+  set -- $value
 
-  aplay -D hw:0,0 ~/Recordings/437.098_2021-08-28_10-41-34.wav &
-
-  aplay -D hw:3,0,0 ~/Recordings/437.098_2021-08-28_10-41-34.wav &
+#  aplay -D hw:0,0 ~/Recordings/437.098_2021-08-28_10-41-34.wav &
+#  aplay -D hw:3,0,0 ~/Recordings/437.098_2021-08-28_10-41-34.wav &
+  aplay -D hw:0,0 WAV/SDRSharp_20210828_223743Z_437100196Hz_AF.wav &
+  aplay -D hw:${2:0:1},0,0 WAV/SDRSharp_20210828_223743Z_437100196Hz_AF.wav &
 
   timeout 30 direwolf -c direwolf-4800.conf -r 48000 -t 0
   
