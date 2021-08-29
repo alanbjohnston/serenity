@@ -157,7 +157,7 @@ elif [ "$choice" = "4" ]; then
 elif [ "$choice" = "5" ]; then
 
   FILE=WAV
-  if [ ! -f "$FILE" ]; then
+  if [ ! -d "$FILE" ]; then
 
     mkdir WAV
     
