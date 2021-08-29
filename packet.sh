@@ -93,7 +93,14 @@ else
   echo "A recorded WAV file will play and you should see about 4 packets decoded"
 
   echo 
-  
+ 
+  FILE=WAV
+  if [ ! -f "$FILE" ]; then
+
+    mkdir WAV
+    
+  fi 
+ 
   FILE=WAV/SDRSharp_20210828_223743Z_437100196Hz_AF.wav
   if [ ! -f "$FILE" ]; then
 
