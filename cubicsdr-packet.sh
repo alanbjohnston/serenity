@@ -156,9 +156,26 @@ elif [ "$choice" = "4" ]; then
 
 elif [ "$choice" = "5" ]; then
 
-  echo "A recorded WAV file will play and you should see about 4 packets decoded"
+  FILE=WAV
+  if [ ! -f "$FILE" ]; then
+
+    mkdir WAV
+    
+  fi 
+ 
+  FILE=WAV/SDRSharp_20210828_223743Z_437100196Hz_AF.wav
+  if [ ! -f "$FILE" ]; then
+
+    wget https://github.com/alanbjohnston/serenity/blob/main/WAV/SDRSharp_20210828_223743Z_437100196Hz_AF.wav?raw=true -O WAV/SDRSharp_20210828_223743Z_437100196Hz_AF.wav
+
+  fi
+
+  echo
+
+  echo "A recorded WAV file will play and you should see some packets decoded"
 
   echo 
+  
 
   value=`aplay -l | grep "Loopback"`
   echo "$value" > /dev/null
