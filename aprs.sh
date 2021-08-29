@@ -31,7 +31,8 @@ echo "1. APRS US 2m (144390 kHz)"
 echo "2. CubeSatSim (434900 kHz)"
 echo "3. APRS European 2m (144800 kHz)"
 echo "4. APRS Australian 2m (145175 kHz)"
-echo "5. Enter a frequency in kiloHertz"
+echo "5. Serenity CubeSat 4800 bps (437.1 MHz)"
+echo "6. Test Serenity CubeSat decoding with WAV file"
 echo
 
 read -r choice
@@ -52,7 +53,16 @@ elif [ "$choice" = "4" ]; then
 
 frequency=145175000
 
+elif [ "$choice" = "5" ]; then
+
+frequency=437100000
+
+#elif [ "$choice" = "6" ]; then
 else
+
+frequency=437100000
+
+fi
 
 echo
 
@@ -74,11 +84,19 @@ echo "Note that the 'Tuned to' frequency will be different from the chosen frequ
 
 echo
 
-echo -e "Auto decoding APRS packets on $frequency Hz"
+if [ "$choice" = "5" ] || [ "$choice" = "6" ]; then
 
-#sudo rtl_fm -f 144.39M -s 22050 -g 48 - | multimon-ng -a AFSK1200 -A -t raw -
+  echo -e "Auto decoding AX.25 packets on $frequency Hz"
 
-direwolf -r 48000 -t 0 &
+  direwolf -r 48000 -c direwolf-4800.conf -t 0 &
+
+else
+
+  echo -e "Auto decoding APRS packets on $frequency Hz"
+
+  direwolf -r 48000 -t 0 &
+
+fi
 
 sleep 5
 
