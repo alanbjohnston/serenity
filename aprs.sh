@@ -40,19 +40,19 @@ read -r choice
 
 if [ "$choice" = "1" ]; then
 
-frequency=144390000
+  frequency=144390000
 
 elif [ "$choice" = "2" ]; then
 
-frequency=434900000
+  frequency=434900000
 
 elif [ "$choice" = "3" ]; then
 
-frequency=144800000
+  frequency=144800000
 
 elif [ "$choice" = "4" ]; then
 
-frequency=145175000
+  frequency=145175000
 
 elif [ "$choice" = "5" ]; then
 
@@ -70,12 +70,26 @@ elif [ "$choice" = "5" ]; then
 
 elif [ "$choice" = "6" ]; then
 
-frequency=437100000
+  frequency=437100000
 
 #elif [ "$choice" = "6" ]; then
 else
 
-frequency=437100000
+  echo "A recorded WAV file will play and you should see about 4 packets decoded"
+
+  echo 
+
+  aplay -D hw:0,0 ~/Recordings/437.098_2021-08-28_10-41-34.wav &
+
+  aplay -D hw:3,0,0 ~/Recordings/437.098_2021-08-28_10-41-34.wav &
+
+  timeout 30 direwolf -c direwolf-4800.conf -r 48000 -t 0
+  
+  echo
+  
+  echo "Test complete.  This window will close in 10 seconds."
+  
+  sleep 5
 
 fi
 
