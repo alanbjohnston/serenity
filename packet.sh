@@ -97,7 +97,7 @@ else
   FILE=WAV/SDRSharp_20210828_223743Z_437100196Hz_AF.wav
   if [ ! -f "$FILE" ]; then
 
-    wget https://github.com/alanbjohnston/serenity/blob/main/WAV/SDRSharp_20210828_223743Z_437100196Hz_AF.wav?raw=true
+    wget https://github.com/alanbjohnston/serenity/blob/main/WAV/SDRSharp_20210828_223743Z_437100196Hz_AF.wav?raw=true -O WAV/SDRSharp_20210828_223743Z_437100196Hz_AF.wav
 
   fi
   
