@@ -31,8 +31,9 @@ echo "1. APRS US 2m (144390 kHz)"
 echo "2. CubeSatSim (434900 kHz)"
 echo "3. APRS European 2m (144800 kHz)"
 echo "4. APRS Australian 2m (145175 kHz)"
-echo "5. Serenity CubeSat 4800 bps (437.1 MHz)"
-echo "6. Test Serenity CubeSat decoding with WAV file"
+echo "5. APRS on another frequency"
+echo "6. Serenity CubeSat 4800 bps (437.1 MHz)"
+echo "7. Test Serenity CubeSat decoding with WAV file"
 echo
 
 read -r choice
@@ -55,6 +56,20 @@ frequency=145175000
 
 elif [ "$choice" = "5" ]; then
 
+  echo
+
+  echo "Enter the frequency in kiloHertz"
+
+  echo
+
+  read -r frequency
+
+  frequency=$frequency"000"
+
+  #echo $frequency
+
+elif [ "$choice" = "6" ]; then
+
 frequency=437100000
 
 #elif [ "$choice" = "6" ]; then
@@ -63,20 +78,6 @@ else
 frequency=437100000
 
 fi
-
-echo
-
-echo "Enter the frequency in kiloHertz"
-
-echo
-
-read -r frequency
-
-frequency=$frequency"000"
-
-fi
-
-#echo $frequency
 
 echo
 
