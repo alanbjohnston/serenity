@@ -1,7 +1,22 @@
 #!/bin/bash
-# script to auto decode APRS packets on 2m
+
+# script to auto decode packet using rtl_fm and Direwolf
 
 sudo modprobe snd-aloop
+
+FILE=direwolf.conf
+if [ ! -f "$FILE" ]; then
+
+  wget https://raw.githubusercontent.com/alanbjohnston/serenity/main/direwolf.conf 
+
+fi
+
+FILE=direwolf-4800.conf
+if [ ! -f "$FILE" ]; then
+
+  wget https://raw.githubusercontent.com/alanbjohnston/serenity/main/direwolf-4800.conf 
+
+fi
 
 sudo systemctl stop openwebrx
 
@@ -78,6 +93,13 @@ else
   echo "A recorded WAV file will play and you should see about 4 packets decoded"
 
   echo 
+  
+  FILE=WAV/SDRSharp_20210828_223743Z_437100196Hz_AF.wav
+  if [ ! -f "$FILE" ]; then
+
+    wget https://github.com/alanbjohnston/serenity/blob/main/WAV/SDRSharp_20210828_223743Z_437100196Hz_AF.wav?raw=true
+
+  fi
   
   value=`aplay -l | grep "Loopback"`
   echo "$value" > /dev/null
