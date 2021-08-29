@@ -90,6 +90,8 @@ else
   echo "Test complete.  This window will close in 10 seconds."
   
   sleep 5
+  
+  exit
 
 fi
 
