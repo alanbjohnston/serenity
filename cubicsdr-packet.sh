@@ -206,7 +206,7 @@ elif [ "$choice" = "8" ]; then
   aplay -D hw:0,0 WAV/SDRSharp_20210828_223743Z_437100196Hz_AF.wav &
   aplay -D hw:${2:0:1},0,0 WAV/SDRSharp_20210828_223743Z_437100196Hz_AF.wav &
 
-  timeout 30 direwolf -c /direwolf/direwolf-4800.conf -r 48000 -t 0
+  timeout 30 direwolf -c direwolf/direwolf-4800.conf -r 48000 -t 0
   
   echo
   
