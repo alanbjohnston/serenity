@@ -47,7 +47,7 @@ if [ "$choice" = "1" ]; then
 
   read input
 
-  direwolf -c direwolf.conf -r 48000 -t 0
+  direwolf -c direwolf/direwolf.conf -r 48000 -t 0
 
 elif [ "$choice" = "2" ]; then
   echo
@@ -70,7 +70,7 @@ elif [ "$choice" = "2" ]; then
 
   read input
 
-  direwolf -c direwolf.conf -r 48000 -t 0
+  direwolf -c direwolf/direwolf.conf -r 48000 -t 0
 
 elif [ "$choice" = "3" ]; then
   echo
@@ -93,7 +93,7 @@ elif [ "$choice" = "3" ]; then
 
   read input
 
-  direwolf -c direwolf.conf -r 48000 -t 0
+  direwolf -c direwolf/direwolf.conf -r 48000 -t 0
 
 
 elif [ "$choice" = "4" ]; then
@@ -117,7 +117,7 @@ elif [ "$choice" = "4" ]; then
 
   read input
 
-  direwolf -c direwolf.conf -r 48000 -t 0
+  direwolf -c direwolf/direwolf.conf -r 48000 -t 0
 
 elif [ "$choice" = "5" ]; then
   echo
@@ -141,7 +141,7 @@ elif [ "$choice" = "5" ]; then
 
   read input
 
-  direwolf -c direwolf.conf -r 48000 -t 0
+  direwolf -c direwolf/direwolf.conf -r 48000 -t 0
 
 elif [ "$choice" = "6" ]; then
   echo
@@ -164,7 +164,7 @@ elif [ "$choice" = "6" ]; then
 
   read input
 
-  direwolf -c direwolf.conf -r 48000 -t 0
+  direwolf -c direwolf/direwolf.conf -r 48000 -t 0
 
 elif [ "$choice" = "7" ]; then
   echo
@@ -188,7 +188,7 @@ elif [ "$choice" = "7" ]; then
 
   read input
 
-  direwolf -c direwolf-4800.conf -r 48000 -t 0
+  direwolf -c direwolf/direwolf-4800.conf -r 48000 -t 0
 
 elif [ "$choice" = "5" ]; then
 
@@ -222,7 +222,7 @@ elif [ "$choice" = "5" ]; then
   aplay -D hw:0,0 WAV/SDRSharp_20210828_223743Z_437100196Hz_AF.wav &
   aplay -D hw:${2:0:1},0,0 WAV/SDRSharp_20210828_223743Z_437100196Hz_AF.wav &
 
-  timeout 30 direwolf -c direwolf-4800.conf -r 48000 -t 0
+  timeout 30 direwolf -c /direwolf/direwolf-4800.conf -r 48000 -t 0
   
   echo
   
