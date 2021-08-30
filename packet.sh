@@ -122,7 +122,7 @@ else
 
   echo -e "Auto decoding APRS packets on $frequency Hz"
 
-  direwolf -r 48000 -t 0 &
+  direwolf -r 48000 -c direwolf/direwolf.conf -t 0 &
 
 fi
 
