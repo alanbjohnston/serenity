@@ -85,20 +85,6 @@ else
 
   echo 
  
-  FILE=WAV
-  if [ ! -d "$FILE" ]; then
-
-    mkdir WAV
-    
-  fi 
- 
-  FILE=WAV/SDRSharp_20210828_223743Z_437100196Hz_AF.wav
-  if [ ! -f "$FILE" ]; then
-
-    wget https://github.com/alanbjohnston/serenity/blob/main/WAV/SDRSharp_20210828_223743Z_437100196Hz_AF.wav?raw=true -O WAV/SDRSharp_20210828_223743Z_437100196Hz_AF.wav
-
-  fi
-  
   value=`aplay -l | grep "Loopback"`
   echo "$value" > /dev/null
   set -- $value
@@ -108,7 +94,7 @@ else
   aplay -D hw:0,0 WAV/SDRSharp_20210828_223743Z_437100196Hz_AF.wav &
   aplay -D hw:${2:0:1},0,0 WAV/SDRSharp_20210828_223743Z_437100196Hz_AF.wav &
 
-  timeout 30 direwolf -c direwolf-4800.conf -r 48000 -t 0
+  timeout 30 direwolf -c direwolf/direwolf-4800.conf -r 48000 -t 0
   
   echo
   
@@ -130,7 +116,7 @@ if [ "$choice" = "7" ] || [ "$choice" = "8" ]; then
 
   echo -e "Auto decoding AX.25 packets on $frequency Hz"
 
-  direwolf -r 48000 -c direwolf-4800.conf -t 0 &
+  direwolf -r 48000 -c direwolf/direwolf-4800.conf -t 0 &
 
 else
 
