@@ -2,43 +2,6 @@
 
 sudo modprobe snd-aloop
 
-#if [ ! -d "./direwolf.conf" ]; then
-
-FILE=direwolf.conf
-if [ ! -f "$FILE" ]; then
-
-  wget https://raw.githubusercontent.com/alanbjohnston/CubeSatSim/FIAB-v3/groundstation/direwolf.conf 
-
-fi
-
-FILE=direwolf-4800.conf
-if [ ! -f "$FILE" ]; then
-
-  wget https://raw.githubusercontent.com/alanbjohnston/CubeSatSim/FIAB-v3/groundstation/direwolf-4800.conf 
-
-fi
-
-FILE=cubicsdr-aprs-direwolf.xml
-if [ ! -f "$FILE" ]; then
-
-  wget https://raw.githubusercontent.com/alanbjohnston/CubeSatSim/FIAB-v3/groundstation/cubicsdr-aprs-direwolf.xml 
-
-fi
-
-FILE=cubicsdr-iss-direwolf.xml
-if [ ! -f "$FILE" ]; then
-
-  wget https://raw.githubusercontent.com/alanbjohnston/CubeSatSim/FIAB-v3/groundstation/cubicsdr-iss-direwolf.xml 
-
-fi
-
-FILE=cubicsdr-serenity-direwolf.xml
-if [ ! -f "$FILE" ]; then
-
-  wget https://raw.githubusercontent.com/alanbjohnston/CubeSatSim/FIAB-v3/groundstation/cubicsdr-serenity-direwolf.xml 
-
-fi
-
 sudo killall -9 CubicSDR &>/dev/null
 sudo killall -9 direwolf &>/dev/null
 
@@ -75,7 +38,7 @@ if [ "$choice" = "1" ]; then
 
   echo
 
-  echo "Then select File/Session/Open Session then load /home/pi/CubeSatSim/groundstation/cubicsdr/cubicsdr-aprs-direwolf.xml then Open."
+  echo "Then select File/Session/Open Session then load /home/pi/CubeSatSim/groundstation/cubicsdr-session/cubicsdr-aprs-direwolf.xml then Open."
   echo "Note that you won't hear anything as the audio is routed to Direwolf for decoding.  To hear the signal, change the Audio Out setting."
 
   echo 
@@ -99,7 +62,7 @@ elif [ "$choice" = "2" ]; then
 
   echo
 
-  echo "Then select File/Session/Open Session then load cubicsdr-cubesatsim-direwolf.xml then Open."
+  echo "Then select File/Session/Open Session then load /home/pi/CubeSatSim/groundstation/cubicsdr-session/cubicsdr-cubesatsim-direwolf.xml then Open."
   echo "Note that you won't get packets unless your CubeSat Simulator is transmitting in APRS digipeater mode."
   echo 
 
@@ -122,7 +85,7 @@ elif [ "$choice" = "3" ]; then
 
   echo
 
-  echo "Then select File/Session/Open Session then load cubicsdr-aprs-eu-direwolf.xml then Open."
+  echo "Then select File/Session/Open Session then load /home/pi/CubeSatSim/groundstation/cubicsdr-session/cubicsdr-aprs-eu-direwolf.xml then Open."
  
  echo 
 
@@ -146,7 +109,7 @@ elif [ "$choice" = "4" ]; then
 
   echo
 
-  echo "Then select File/Session/Open Session then load cubicsdr-aprs-au-direwolf.xml then Open."
+  echo "Then select File/Session/Open Session then load /home/pi/CubeSatSim/groundstation/cubicsdr-session/cubicsdr-aprs-au-direwolf.xml then Open."
   
   echo 
 
@@ -169,7 +132,7 @@ elif [ "$choice" = "5" ]; then
 
   echo
 
-  echo "Then select File/Session/Open Session then load cubicsdr-aprs-direwolf.xml then Open."
+  echo "Then select File/Session/Open Session then load /home/pi/CubeSatSim/groundstation/cubicsdr-session/cubicsdr-aprs-direwolf.xml then Open."
   echo "Then tune the CubicSDR frequency to the one you want to decode."
 
   echo 
@@ -193,7 +156,7 @@ elif [ "$choice" = "6" ]; then
 
   echo
 
-  echo "Then select File/Session/Open Session then load cubicsdr-iss-direwolf.xml then Open."
+  echo "Then select File/Session/Open Session then load /home/pi/CubeSatSim/groundstation/cubicsdr-session/cubicsdr-iss-direwolf.xml then Open."
   echo "Note that you won't get packets unless the ISS is passing over and the radio is in APRS digipeater mode."
   echo 
 
@@ -216,7 +179,7 @@ elif [ "$choice" = "7" ]; then
 
   echo
 
-  echo "Then select File/Session/Open Session then load cubicsdr-serenity-direwolf.xml then Open."
+  echo "Then select File/Session/Open Session then load /home/pi/CubeSatSim/groundstation/cubicsdr-session/cubicsdr-serenity-direwolf.xml then Open."
   echo "Note that you won't get packets unless the Serenity CubeSat is passing over and is beaconing."
 
   echo 

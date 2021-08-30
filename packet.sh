@@ -4,20 +4,6 @@
 
 sudo modprobe snd-aloop
 
-FILE=direwolf.conf
-if [ ! -f "$FILE" ]; then
-
-  wget https://raw.githubusercontent.com/alanbjohnston/serenity/main/direwolf.conf 
-
-fi
-
-FILE=direwolf-4800.conf
-if [ ! -f "$FILE" ]; then
-
-  wget https://raw.githubusercontent.com/alanbjohnston/serenity/main/direwolf-4800.conf 
-
-fi
-
 sudo systemctl stop openwebrx
 
 sudo systemctl stop rtl_tcp
