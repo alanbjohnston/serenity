@@ -2,10 +2,27 @@
 
 sudo modprobe snd-aloop
 
-sudo killall -9 CubicSDR &>/dev/null
+sudo systemctl stop openwebrx
+
+sudo systemctl stop rtl_tcp
+
+pkill -o chromium &>/dev/null
+
+sudo killall -9 rtl_fm &>/dev/null
+
 sudo killall -9 direwolf &>/dev/null
 
-sleep 5
+sudo killall -9 aplay &>/dev/null
+
+sudo killall -9 qsstv &>/dev/null
+
+sudo killall -9 rtl_tcp &>/dev/null
+
+sudo killall -9 java &>/dev/null
+
+sudo killall -9 CubicSDR &>/dev/null
+
+#sleep 5
 
 echo
 
@@ -203,8 +220,8 @@ elif [ "$choice" = "8" ]; then
   echo "$value" > /dev/null
   set -- $value
 
-  aplay -D hw:0,0 WAV/SDRSharp_20210828_223743Z_437100196Hz_AF.wav &
-  aplay -D hw:${2:0:1},0,0 WAV/SDRSharp_20210828_223743Z_437100196Hz_AF.wav &
+  aplay -D hw:0,0 WAV/SDRSharp_20210830_200034Z_437097377Hz_AF.wav &
+  aplay -D hw:${2:0:1},0,0 WAV/SDRSharp_20210830_200034Z_437097377Hz_AF.wav &
 
   timeout 30 direwolf -c direwolf/direwolf-4800.conf -r 48000 -t 0
   
