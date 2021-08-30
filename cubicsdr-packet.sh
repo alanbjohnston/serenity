@@ -220,8 +220,10 @@ elif [ "$choice" = "8" ]; then
   echo "$value" > /dev/null
   set -- $value
 
-  aplay -D hw:0,0 WAV/SDRSharp_20210830_200034Z_437097377Hz_AF.wav &
-  aplay -D hw:${2:0:1},0,0 WAV/SDRSharp_20210830_200034Z_437097377Hz_AF.wav &
+#  aplay -D hw:0,0 WAV/SDRSharp_20210830_200034Z_437097377Hz_AF.wav &
+#  aplay -D hw:${2:0:1},0,0 WAV/SDRSharp_20210830_200034Z_437097377Hz_AF.wav &
+  aplay -D hw:0,0 WAV/beacon_test_2.wav &
+  aplay -D hw:${2:0:1},0,0 WAV/beacon_test_2.wav &
 
   timeout 30 direwolf -c direwolf/direwolf-4800.conf -r 48000 -t 0
   
